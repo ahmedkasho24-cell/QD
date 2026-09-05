@@ -260,29 +260,35 @@ nav.main-nav a:hover::after{width:100%;}
 .project-card{
   background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
   overflow:hidden;transition:transform .35s, border-color .35s;
+  display:flex;flex-direction:column;
 }
 .project-card:hover{transform:translateY(-6px);border-color:var(--text-faint);}
 .project-thumb{
-  height:240px;background:var(--bg-soft);position:relative;overflow:hidden;
+  height:240px;width:100%;background:var(--bg-soft);position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:center;
   border-bottom:1px solid var(--line);
+  flex-shrink:0;
 }
 .project-thumb-placeholder{
   color:var(--text-faint);font-size:13px;font-weight:700;text-align:center;
   display:flex;flex-direction:column;align-items:center;gap:10px;
 }
 .project-thumb-placeholder i{font-size:30px;opacity:.5;}
-.project-thumb img{width:100%;height:100%;object-fit:cover;}
-.project-tagbar{position:absolute;top:14px;right:14px;display:flex;gap:6px;}
+.project-thumb img{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  display:block;
+}
+.project-tagbar{position:absolute;top:14px;right:14px;display:flex;gap:6px;z-index:2;}
 .project-tag{
   background:rgba(11,12,15,0.75);backdrop-filter:blur(6px);
   color:var(--text);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;
   border:1px solid var(--line);
 }
-.project-body{padding:28px 26px;}
+.project-body{padding:28px 26px;display:flex;flex-direction:column;flex:1;}
 .project-body h3{font-size:21px;font-weight:900;margin-bottom:10px;}
 .project-body p{font-size:14.5px;color:var(--text-dim);margin-bottom:18px;}
-.project-meta{display:flex;flex-wrap:wrap;gap:8px;}
+.project-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;}
 .project-meta span{
   font-size:11.5px;font-weight:700;color:var(--text-dim);
   border:1px solid var(--line);padding:5px 12px;border-radius:6px;
@@ -380,7 +386,7 @@ footer{padding:90px 0 0;}
   <div class="header-inner">
     <a href="#top" class="brand">
       <div class="brand-logo">
-      <img src="Modern_minimalist_tech_logo_design_for_Quwa_Digita-1782569323087.png" alt="Quwa Digital"> 
+        <img src="Modern_minimalist_tech_logo_design_for_Quwa_Digita-1782569323087.png" alt="Quwa Digital">
         <span class="brand-logo-placeholder"></span>
       </div>
       <div class="brand-name">
@@ -520,32 +526,37 @@ footer{padding:90px 0 0;}
     <p class="section-sub reveal">مش بس أفكار على الورق — دول جزء من المشاريع اللي اشتغلنا عليها من الصفر للإطلاق.</p>
 
     <div class="portfolio-grid reveal">
+
       <div class="project-card">
         <div class="project-thumb">
-          <img src="Screenshot (194).png" alt="TUSAH"> 
-          <div class="project-thumb-placeholder">
-          </div>
+          <img src="Screenshot (194).png" alt="TUSAH">
           <div class="project-tagbar">
             <span class="project-tag">E-Commerce</span>
             <span class="project-tag">Laravel</span>
           </div>
         </div>
-        
+        <div class="project-body">
+          <h3>TUSAH</h3>
+          <p>منصة تجارة إلكترونية متكاملة لمعدات الفنون القتالية تستهدف منطقة الشرق الأوسط وشمال أفريقيا — من تصميم الواجهة لحد بناء النظام الخلفي الكامل.</p>
+          <div class="project-meta">
+            <span>Laravel 13</span>
+            <span>MySQL</span>
+            <span>تصميم متعدد اللغات</span>
+          </div>
+        </div>
+      </div>
 
       <div class="project-card">
         <div class="project-thumb">
-          <img src="Screenshot (193).png" alt="نظام التجمع الأول"> 
-          <div class="project-thumb-placeholder">
-          </div>
+          <img src="Screenshot (193).png" alt="نظام إدارة عيادة أسنان">
           <div class="project-tagbar">
-            <span class="project-tag">إدارة لاعبين</span>
+            <span class="project-tag">إدارة عيادات</span>
             <span class="project-tag">Supabase</span>
           </div>
         </div>
-        
         <div class="project-body">
           <h3>نظام ادارة عيادة طبيب أسنان</h3>
-          <p>نظام إداري كامل لأكبر عيادات الأسنان في الأسكندرية — حجز أونلاين, تتبع الأحوال المالية لوحة تحكم إدارية بالبحث والفلترة، وتخزين سحابي لكل المستندات.</p>
+          <p>نظام إداري كامل لأكبر عيادات الأسنان في الأسكندرية — حجز أونلاين، تتبع الأحوال المالية، لوحة تحكم إدارية بالبحث والفلترة، وتخزين سحابي لكل المستندات.</p>
           <div class="project-meta">
             <span>Supabase</span>
             <span>GitHub Pages</span>
@@ -553,11 +564,10 @@ footer{padding:90px 0 0;}
           </div>
         </div>
       </div>
+
       <div class="project-card">
         <div class="project-thumb">
-          <img src="Generated Image July 01, 2026 - 3_18AM.png" alt="Gym System"> 
-          <div class="project-thumb-placeholder">
-          </div>
+          <img src="Generated Image July 01, 2026 - 3_18AM.png" alt="نظام إداري جيم">
           <div class="project-tagbar">
             <span class="project-tag">إدارة جيم</span>
             <span class="project-tag">Supabase</span>
@@ -565,7 +575,7 @@ footer{padding:90px 0 0;}
         </div>
         <div class="project-body">
           <h3>نظام اداري جيم</h3>
-          <p>نظام إداري كامل لجيم رياضي— تسجيل لاعبين ,دفع الشتراكات ، لوحة تحكم إدارية بالبحث والفلترة، وتخزين سحابي لكل المستندات.</p>
+          <p>نظام إداري كامل لجيم رياضي — تسجيل لاعبين، دفع الاشتراكات، لوحة تحكم إدارية بالبحث والفلترة، وتخزين سحابي لكل المستندات.</p>
           <div class="project-meta">
             <span>Supabase</span>
             <span>GitHub Pages</span>
@@ -573,30 +583,37 @@ footer{padding:90px 0 0;}
           </div>
         </div>
       </div>
+
       <div class="project-card">
         <div class="project-thumb">
-          <img src="Generated Image July 01, 2026 - 3_19AM.png" alt="منصة مدرس"> 
-          <div class="project-thumb-placeholder">
-          </div>
+          <img src="Generated Image July 01, 2026 - 3_19AM.png" alt="منصة مدرس">
           <div class="project-tagbar">
-            <span class="project-tag">إدارة المنصة التعليمية</span>
+            <span class="project-tag">منصة تعليمية</span>
             <span class="project-tag">Supabase</span>
           </div>
         </div>
-        
+        <div class="project-body">
+          <h3>منصة إدارة تعليمية</h3>
+          <p>منصة لإدارة العملية التعليمية لمدرس — متابعة الطلاب والحصص والمحتوى، لوحة تحكم إدارية بالبحث والفلترة، وتخزين سحابي لكل المستندات.</p>
+          <div class="project-meta">
+            <span>Supabase</span>
+            <span>GitHub Pages</span>
+            <span>إدارة بيانات</span>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card">
         <div class="project-thumb">
-          <img src="Generated Image July 01, 2026 - 3_21AM.png" alt="سيستيم شركة شحن"> 
-          <div class="project-thumb-placeholder">
-          </div>
+          <img src="Generated Image July 01, 2026 - 3_21AM.png" alt="نظام شركة شحن">
           <div class="project-tagbar">
-            <span class="project-tag">إدارة شركة شحن</span>
+            <span class="project-tag">إدارة شحن</span>
             <span class="project-tag">Supabase</span>
           </div>
         </div>
         <div class="project-body">
           <h3>نظام شركة شحن</h3>
-          <p>نظام إداري كامل لشركة شحن بري تتبع المنتجات والتواصل مع العملاء وتصدير بيانات، لوحة تحكم إدارية بالبحث والفلترة، وتخزين سحابي لكل المستندات.</p>
+          <p>نظام إداري كامل لشركة شحن بري لتتبع المنتجات والتواصل مع العملاء وتصدير بيانات، لوحة تحكم إدارية بالبحث والفلترة، وتخزين سحابي لكل المستندات.</p>
           <div class="project-meta">
             <span>Supabase</span>
             <span>GitHub Pages</span>
@@ -604,26 +621,25 @@ footer{padding:90px 0 0;}
           </div>
         </div>
       </div>
+
       <div class="project-card">
         <div class="project-thumb">
-          <img src="Generated Image July 01, 2026 - 3_43AM.png" alt="الاعلانات المممولة"> 
-          <div class="project-thumb-placeholder">
-          </div>
+          <img src="Generated Image July 01, 2026 - 3_43AM.png" alt="إدارة الإعلانات الممولة">
           <div class="project-tagbar">
-            <span class="project-tag">إدارة الاعلانات الممولة</span>
+            <span class="project-tag">إعلانات ممولة</span>
             <span class="project-tag">فيسبوك وأنستا</span>
           </div>
         </div>
         <div class="project-body">
-          <h3>ادارة الاعلانات الممولة</h3>
-          <p>ادارة الحملات الاعلانية بكل سهولة واحتراف</p>
+          <h3>إدارة الإعلانات الممولة</h3>
+          <p>إدارة الحملات الإعلانية بكل سهولة واحترافية على فيسبوك وانستجرام وسناب شات.</p>
           <div class="project-meta">
             <span>فيسبوك وانستجرام وسناب شات</span>
-            <span>GitHub Pages</span>
             <span>إدارة حملات</span>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -690,7 +706,7 @@ footer{padding:90px 0 0;}
         <h5>المسؤول عن المنصة</h5>
         <div class="founder-card">
           <div class="founder-photo">
-            <img src="gemini-watermark-removed.png" alt="Eng. Ahmed Kasho"> 
+            <img src="gemini-watermark-removed.png" alt="Eng. Ahmed Kasho">
           </div>
           <div class="founder-info">
             <b>Eng. Ahmed Kasho</b>
@@ -699,8 +715,8 @@ footer{padding:90px 0 0;}
         </div>
         <div style="margin-top:18px;">
           <!-- ضع بيانات التواصل الحقيقية هنا: رقم واتساب، إيميل، لينك صفحة فيسبوك -->
-          <a href="#"><i class="fa-brands fa-whatsapp"></i>+20 1206675246</a>
-          <a href="#"><i class="fa-solid fa-envelope"></i>ahmedkasho24@gmail.com</a>
+          <a href="https://wa.me/201206675246"><i class="fa-brands fa-whatsapp"></i> +20 1206675246</a>
+          <a href="mailto:ahmedkasho24@gmail.com"><i class="fa-solid fa-envelope"></i> ahmedkasho24@gmail.com</a>
         </div>
       </div>
     </div>
@@ -709,9 +725,9 @@ footer{padding:90px 0 0;}
       <p>© 2026 Quwa Digital. جميع الحقوق محفوظة.</p>
       <div class="footer-socials">
         <!-- ضع لينكات صفحاتك الحقيقية -->
-        <a href="#" title="فيسبوك"><i class="https://www.facebook.com/profile.php?id=61591390443233"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61591390443233" title="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#" title="انستجرام"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" title="واتساب"><i class="https://wa.me/201206675246"></i></a>
+        <a href="https://wa.me/201206675246" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
